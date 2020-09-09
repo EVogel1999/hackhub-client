@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hackhub-client"
+    }
+  },
+  "defaultProject": "hackhub-client",
+  "cli": {
+    "analytics": "c6746406-b791-44f2-9c80-cfc497376105"
+  }
 }
