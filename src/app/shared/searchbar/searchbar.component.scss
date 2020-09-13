@@ -2,5 +2,71 @@
 
 .wrapper {
     background-color: $accent-color;
+    color: $normal-font-color;
     width: 100%;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+
+    input {
+        background-color: $light-accent-color;
+        width: 100%;
+        border: none;
+        padding: 15px 10px;
+        margin-left: 100px;
+        border-radius: 5px;
+        color: $normal-font-color;
+        cursor: text;
+    }
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h1 {
+        font-weight: normal;
+    }
+
+    img {
+        width: 100px;
+    }
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    padding: 10px 0;
+    height: 50px;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar {
+        height: 5px !important;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: $normal-font-color;
+    }
+
+    span {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+        cursor: pointer;
+    }
 }

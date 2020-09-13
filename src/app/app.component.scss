@@ -5,9 +5,12 @@ main {
     align-items: flex-start;
 }
 
+app-navbar {
+    z-index: 1;
+}
+
 .wrapper {
     width: 100%;
     height: 100vh;
     overflow-y: scroll;
-    z-index: -1;
 }

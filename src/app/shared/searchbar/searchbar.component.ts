@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchbarComponent implements OnInit {
 
+  tags: string[] = [
+    'All',
+    'Web',
+    'Database',
+    'API',
+    'Fullstack',
+    'DevOps',
+    'Operating Systems',
+    'Embedded Systems',
+    'Machine Learning',
+    'Game Development',
+    'Cloud Computing',
+    'Programming Languages'
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
