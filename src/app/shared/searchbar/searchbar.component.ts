@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TagsService } from 'src/app/services/tags.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -7,24 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchbarComponent implements OnInit {
 
-  tags: string[] = [
-    'All',
-    'Web',
-    'Database',
-    'API',
-    'Fullstack',
-    'DevOps',
-    'Operating Systems',
-    'Embedded Systems',
-    'Machine Learning',
-    'Game Development',
-    'Cloud Computing',
-    'Programming Languages'
-  ];
+  tags: string[] = [];
 
-  constructor() { }
+  constructor(private tagsService: TagsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.tags = await this.tagsService.getTags();
   }
 
 }

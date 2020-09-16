@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="separate">
+        <span class="category"></span>
+        <div class="info">
+            <div class="name">
+                <span class="project">{{ project.name }}</span>
+                <span>
+                    <span *forEach="let tag of project.tags">{{ tag.name }}</span>
+                </span>
+            </div>
+            <span>{{ project.description }}</span>
+        </div>
+    </div>
+    <img src="../../../assets/images/hackhub_logo_small.png"/>
+</div>

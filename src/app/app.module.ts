@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { ProjectCardComponent } from './shared/project-card/project-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SearchbarComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

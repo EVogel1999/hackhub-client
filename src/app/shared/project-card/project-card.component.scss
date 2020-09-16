@@ -1,0 +1,61 @@
+@import '../../../vars';
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: $accent-color;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+
+    .separate {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        color: $normal-font-color;
+
+        .name {
+            margin-bottom: 10px;
+            
+            .project {
+                color: $font-color;
+                font-size: 24px;
+            }
+        }
+    }
+
+    .category {
+        display: inline-block;
+        min-width: 24px;
+        min-height: 24px;
+        mask-size: cover;
+        mask-position: center;
+        margin-right: 10px;
+
+        &.api {
+            background-color: $font-color;
+            mask: url('../../../assets/icons/api.svg') no-repeat 100% 100%;
+        }
+
+        &.like {
+            background-color: $font-color;
+            mask: url('../../../assets/icons/memory.svg') no-repeat 100% 100%;
+        }
+    }
+
+    img {
+        width: 100px;
+        margin-left: 10px;
+    }
+}
