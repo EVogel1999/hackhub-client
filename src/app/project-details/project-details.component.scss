@@ -1,0 +1,105 @@
+@import '../../vars';
+
+.interaction {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.header {
+    color: $font-color;
+
+    .project {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 50px 100px 0 100px;
+
+        h1 {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 36px;
+            font-weight: normal;
+        }
+    }
+
+    .author {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        color: $normal-font-color;
+
+        img {
+            width: 50px;
+            border-radius: 100px;
+            margin-right: 10px;
+        }
+    }
+
+    .tag {
+        color: $normal-font-color;
+
+        &:not(:last-child)::after {
+            content: '·';
+            margin: 0 5px;
+        }
+    }
+
+    &:before {
+        content: '';
+        z-index: -1;
+        background: $accent-color;
+        opacity: .6;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        mask: url('../../assets/images/topography.svg') repeat;
+    }
+}
+
+nav {
+    margin: 0 30px 0 50px;
+    width: fit-content;
+    min-width: 200px;
+    float: right;
+    background-color: $accent-color;
+    color: $normal-font-color;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    
+    button {
+        background: transparent;
+        color: $normal-font-color;
+        border: none;
+        padding: 20px;
+        font-size: 14px;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    margin: 0 50px 50px 50px;
+    padding: 30px;
+    background-color: $accent-color;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    color: $normal-font-color;
+
+    img {
+        width: 200px;
+        margin-right: 20px;
+    }
+}

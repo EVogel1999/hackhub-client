@@ -1,0 +1,25 @@
+<app-searchbar></app-searchbar>
+
+<div *ngIf="project">
+    <section class="interaction">
+        <div class="header">
+            <div class="project">
+                <h1>{{ project.name }}</h1>
+                <span class="tag" *ngFor="let tag of project.tags">{{ tag.name }}</span>
+            </div>
+            <div class="author">
+                <img src="{{ author.profileURL }}" />
+                <h3>{{ author.name }}</h3>
+            </div>
+        </div>
+
+        <nav>
+            <button>Repository</button>
+            <button>Save</button>
+        </nav>
+    </section>
+    <section class="content">
+        <img src="../../assets/images/hackhub_logo_small.png">
+        {{ project.description }}
+    </section>
+</div>
