@@ -1,0 +1,28 @@
+@import '../../../vars';
+
+h1 {
+    display: inline-block;
+    margin: 0;
+}
+
+.action {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+
+    button {
+        border: none;
+        background-color: $font-color;
+        color: $primary-color;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 0 10px;
+        min-width: 100px;
+        cursor: pointer;
+
+        &.cancel {
+            background-color: lighten($light-accent-color, 10);
+            color: $normal-font-color;
+        }
+    }
+}

@@ -5,7 +5,7 @@
         <p>{{ project.description }}</p>
     </div>
     <span class="action">
-        <button class="edit" aria-label="Edit project"></button>
-        <button class="delete" aria-label="Delete project"></button>
+        <button class="edit" aria-label="Edit project" (click)="updateProject()"></button>
+        <button class="delete" aria-label="Delete project" (click)="deleteProject()"></button>
     </span>
 </div>

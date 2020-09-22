@@ -1,7 +1,7 @@
 <section class="wrapper">
     <h1>Your Creations</h1>
     <div class="content">
-        <app-project-tile *ngFor="let project of projects" [project]="project"></app-project-tile>
+        <app-project-tile *ngFor="let project of projects" [project]="project" (detectChange)="detectChange()"></app-project-tile>
     </div>
     <button class="create" (click)="openCreateProjectPopup()" aria-label="Create new project"></button>
 </section>

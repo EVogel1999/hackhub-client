@@ -16,7 +16,7 @@ export class AuthorDashboardComponent implements OnInit {
   constructor(private projectService: ProjectsService, private dialog: MatDialog) { }
 
   async ngOnInit(): Promise<void> {
-    this.projects = await this.projectService.getAuthorProjects('');
+    await this.detectChange();
   }
 
   async openCreateProjectPopup() {
@@ -24,6 +24,10 @@ export class AuthorDashboardComponent implements OnInit {
       data: { mode: 'create' }
     });
     await dialogRef.afterClosed().toPromise()
+    await this.detectChange();
+  }
+
+  async detectChange() {
     this.projects = await this.projectService.getAuthorProjects('');
   }
 

@@ -14,6 +14,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { AuthorDashboardComponent } from './author-dashboard/author-dashboard.component';
 import { ProjectTileComponent } from './author-dashboard/project-tile/project-tile.component';
 import { FormsModule } from '@angular/forms';
+import { DeleteConfirmComponent } from './author-dashboard/delete-confirm/delete-confirm.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     ProjectDetailsComponent,
     AuthorDashboardComponent,
     ProjectTileComponent,
-    ProjectPopupComponent
+    ProjectPopupComponent,
+    DeleteConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,6 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ProjectPopupComponent]
+  entryComponents: [ProjectPopupComponent, DeleteConfirmComponent]
 })
 export class AppModule { }
