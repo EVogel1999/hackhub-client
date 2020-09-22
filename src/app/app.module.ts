@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateProjectPopupComponent } from './author-dashboard/create-project-popup/create-project-popup.component';
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +13,7 @@ import { ProjectCardComponent } from './shared/project-card/project-card.compone
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { AuthorDashboardComponent } from './author-dashboard/author-dashboard.component';
 import { ProjectTileComponent } from './author-dashboard/project-tile/project-tile.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,18 @@ import { ProjectTileComponent } from './author-dashboard/project-tile/project-ti
     ProjectCardComponent,
     ProjectDetailsComponent,
     AuthorDashboardComponent,
-    ProjectTileComponent
+    ProjectTileComponent,
+    CreateProjectPopupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateProjectPopupComponent]
 })
 export class AppModule { }

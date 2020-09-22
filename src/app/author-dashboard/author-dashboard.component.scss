@@ -20,6 +20,22 @@
         row-gap: 20px;
     }
 
+    .create {
+        position: absolute;
+        right: 30px;
+        bottom: 20px;
+        background: $font-color;
+        border: none;
+        border-radius: 100px;
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+        mask: url('../../assets/icons/add_circle.svg') no-repeat 100% 100%;
+        mask-position: center;
+        mask-size: cover;
+        cursor: pointer;
+    }
+
     &:before {
         content: '';
         z-index: -1;

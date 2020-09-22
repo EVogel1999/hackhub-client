@@ -3,4 +3,5 @@
     <div class="content">
         <app-project-tile *ngFor="let project of projects" [project]="project"></app-project-tile>
     </div>
+    <button class="create" (click)="openCreateProjectPopup()" aria-label="Create new project"></button>
 </section>

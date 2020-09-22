@@ -1,0 +1,22 @@
+<form class="wrapper">
+    <h1>Create a Project</h1>
+    <div class="input">
+        <label>* Name</label>
+        <input placeholder="Project name" [(ngModel)]="model.name" name="name" required>
+    </div>
+    
+    <div class="input">
+        <label>* Description</label>
+        <textarea placeholder="Project description" [(ngModel)]="model.description" name="description" required></textarea>
+    </div>
+    
+    <div class="input">
+        <label>Repository URL</label>
+        <input placeholder="Project repository url" [(ngModel)]="model.repositoryURL" name="repoURL">
+    </div>
+    
+    <div class="action">
+        <button class="cancel" (click)="cancel()">Cancel</button>
+        <button (click)="submit()">Create</button>
+    </div>
+</form>

@@ -71,6 +71,7 @@ export class ProjectsService {
   }
 
   async createProject(project: Project): Promise<void> {
+    project.id = '1234';
     this.projects.push(project);
   }
 
