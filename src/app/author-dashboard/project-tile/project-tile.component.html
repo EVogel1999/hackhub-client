@@ -1,0 +1,11 @@
+<div>
+    <div class="tile" routerLink="/projects/{{ project.id }}">
+        <h1>{{ project.name }}</h1>
+        <span *ngFor="let tag of project.tags">{{ tag.name }}</span>
+        <p>{{ project.description }}</p>
+    </div>
+    <span class="action">
+        <button class="edit" aria-label="Edit project"></button>
+        <button class="delete" aria-label="Delete project"></button>
+    </span>
+</div>

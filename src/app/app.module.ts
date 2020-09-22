@@ -8,6 +8,8 @@ import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectCardComponent } from './shared/project-card/project-card.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { AuthorDashboardComponent } from './author-dashboard/author-dashboard.component';
+import { ProjectTileComponent } from './author-dashboard/project-tile/project-tile.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     SearchbarComponent,
     ProjectsComponent,
     ProjectCardComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    AuthorDashboardComponent,
+    ProjectTileComponent
   ],
   imports: [
     BrowserModule,

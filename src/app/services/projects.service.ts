@@ -81,4 +81,8 @@ export class ProjectsService {
   async deleteProject(id: string) {
 
   }
+
+  async getAuthorProjects(authId: string): Promise<Project[]> {
+    return this.projects;
+  }
 }

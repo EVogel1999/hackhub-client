@@ -1,0 +1,56 @@
+@import '../../../vars';
+
+.tile {
+    background-color: $accent-color;
+    border-radius: 5px;
+    padding: 10px 10px 36px 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 0;
+    height: 100%;
+    cursor: pointer;
+
+    h1 {
+        margin: 0;
+        color: $font-color;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    span {
+        &:not(:last-child)::after {
+            content: '·';
+            margin: 0 5px;
+        }
+    }
+}
+
+.action {
+    display: block;
+    position: relative;
+    top: -26px;
+    text-align: right;
+    z-index: 1;
+
+    button {
+        background: transparent;
+        border: none;
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+        margin: 0 5px;
+
+        &.delete {
+            background-color: $error-color;
+            mask: url('../../../assets/icons/delete.svg') no-repeat 100% 100%;;
+        }
+
+        &.edit {
+            background-color: $normal-font-color;
+            mask: url('../../../assets/icons/create.svg') no-repeat 100% 100%;
+        }
+    }
+}
