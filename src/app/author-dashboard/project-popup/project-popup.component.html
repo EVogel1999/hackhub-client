@@ -1,5 +1,5 @@
 <form class="wrapper">
-    <h1>Create a Project</h1>
+    <h1>{{ mode === 'create' ? 'Create' : 'Update' }} a Project</h1>
     <div class="input">
         <label>* Name</label>
         <input placeholder="Project name" [(ngModel)]="model.name" name="name" required>
@@ -17,6 +17,6 @@
     
     <div class="action">
         <button class="cancel" (click)="cancel()">Cancel</button>
-        <button (click)="submit()">Create</button>
+        <button (click)="submit()">{{ mode === 'create' ? 'Create' : 'Update' }}</button>
     </div>
 </form>

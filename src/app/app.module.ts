@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateProjectPopupComponent } from './author-dashboard/create-project-popup/create-project-popup.component';
+import { ProjectPopupComponent } from './author-dashboard/project-popup/project-popup.component';
 import { MatDialogModule } from "@angular/material/dialog";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     ProjectDetailsComponent,
     AuthorDashboardComponent,
     ProjectTileComponent,
-    CreateProjectPopupComponent
+    ProjectPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +36,6 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CreateProjectPopupComponent]
+  entryComponents: [ProjectPopupComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ProjectsService } from '../services/projects.service';
 import { Project } from '../types/project';
-import { CreateProjectPopupComponent } from './create-project-popup/create-project-popup.component';
+import { ProjectPopupComponent } from './project-popup/project-popup.component';
 
 @Component({
   selector: 'app-author-dashboard',
@@ -20,7 +20,9 @@ export class AuthorDashboardComponent implements OnInit {
   }
 
   async openCreateProjectPopup() {
-    const dialogRef = this.dialog.open(CreateProjectPopupComponent);
+    const dialogRef = this.dialog.open(ProjectPopupComponent, {
+      data: { mode: 'create' }
+    });
     await dialogRef.afterClosed().toPromise()
     this.projects = await this.projectService.getAuthorProjects('');
   }
