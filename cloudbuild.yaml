@@ -1,20 +1,23 @@
 steps:
-    # Install Node Modules
-    - name: 'gcr.io/cloud-builders/npm'
-        args: ['install']
+# Install Node Modules
+- name: node
+  entrypoint: npm
+  args: ['install']
 
-    # Perform Unit Testing
-    - name: 'gcr.io/cloud-builders/npm'
-        args: ['test']
+# Perform Unit Testing
+- name: node
+  entrypoint: npm
+  args: ['test']
 
-    # Build Production Application
-    - name: 'gcr.io/cloud-builders/npm'
-        args: ['run', 'build', '--prod']
+# Build Production Application
+- name: node
+  entrypoint: npm
+  args: ['run', 'build', '--prod']
 
-    # Build Docker Image
-    - name: 'gcr.io/cloud-builders/docker'
-        args: ['build', '-t', 'gcr.io/$PROJECT_ID/client', '.']
+# Build Docker Image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/client', '.']
 
-    # Push Docker Image to GCR
-    - name: 'gcr.io/cloud-builders/docker'
-        args: ['push', 'gcr.io/$PROJECT_ID/client']
+# Push Docker Image to GCR
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/client']
