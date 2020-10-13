@@ -21,3 +21,8 @@ steps:
 # Push Docker Image to GCR
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/client']
+
+# Deploy to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'client', '--image', 'gcr.io/$PROJECT_ID/client', '--region', 'us-central1', '--platform', 'managed']
