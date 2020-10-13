@@ -5,9 +5,9 @@ steps:
   args: ['install']
 
 # Perform Unit Testing
-- name: node
-  entrypoint: npm
-  args: ['test']
+# - name: node
+#   entrypoint: npm
+#   args: ['test']
 
 # Build Production Application
 - name: node
