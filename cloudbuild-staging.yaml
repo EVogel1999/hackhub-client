@@ -1,0 +1,28 @@
+steps:
+# Install Node Modules
+- name: node
+  entrypoint: npm
+  args: ['install']
+    
+# Perform Unit Testing
+# - name: node
+#   entrypoint: npm
+#   args: ['test']
+    
+# Build Production Application
+- name: node
+  entrypoint: npm
+  args: ['run', 'build', '--prod']
+    
+# Build Docker Image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/client-staging', '.']
+    
+# Push Docker Image to GCR
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/client-staging']
+    
+# Deploy to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'client', '--image', 'gcr.io/$PROJECT_ID/client-staging', '--region', 'us-central1', '--platform', 'managed']
