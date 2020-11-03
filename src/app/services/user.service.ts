@@ -1,18 +1,48 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
 import { User } from '../types/user';
+
+export const COOKIE = 'hackhub';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  users: User[] = [
-    {id: '5f581d4a83a089abe222f685', name: 'Emily Vogel', email: 'evogel4@students.towson.edu', profileURL: 'https://avatars3.githubusercontent.com/u/32078831?s=400&u=97c5771f9758c2704b7c7f840c4df14a05c543ab&v=4'}
-  ];
+  private _user: { id: string, name: string, email: string, profileURL: string } = null;
 
-  constructor() { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   async getUser(id: string): Promise<User> {
-    return this.users.find(user => user.id === id);
+    return await this.http.get<User>(`${environment.BASE_API_URL}/users/${id}`).toPromise();
+  }
+
+  async getUsers(): Promise<User[]> {
+    return await this.http.get<User[]>(`${environment.BASE_API_URL}/users`).toPromise();
+  }
+
+  async updateUser(id: string, updates: Partial<User>) {
+    await this.http.patch(`${environment.BASE_API_URL}/users/${id}`, updates).toPromise()
+  }
+
+  async deleteUser(id: string) {
+    await this.http.delete(`${environment.BASE_API_URL}/users/${id}`).toPromise();
+  }
+
+  async user() {
+    if (!this._user) {
+      this._user = await this.http.get<any>(`${environment.BASE_API_URL}/users/token`, { withCredentials: true }).toPromise();
+    }
+    return this._user;
+  }
+
+  getCookie() {
+    if (this.cookieService.check(COOKIE)) {
+      return this.cookieService.get(COOKIE);
+    } else {
+      throw new Error('User is not logged in!');
+    }
   }
 }
