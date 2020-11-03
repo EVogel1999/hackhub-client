@@ -29,7 +29,7 @@ export class ProjectTileComponent implements OnInit {
 
   async deleteProject() {
     const dialogRef = this.dialog.open(DeleteConfirmComponent, {
-      data: { mode: 'project', params: this.project.id }
+      data: { mode: 'project', params: this.project._id }
     });
     await dialogRef.afterClosed().toPromise();
     this.detectChange.emit(true);

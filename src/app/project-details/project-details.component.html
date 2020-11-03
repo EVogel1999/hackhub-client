@@ -7,7 +7,7 @@
                 <h1>{{ project.name }}</h1>
                 <span class="tag" *ngFor="let tag of project.tags">{{ tag.name }}</span>
             </div>
-            <div class="author">
+            <div *ngIf="author" class="author">
                 <img src="{{ author.profileURL }}" />
                 <h3>{{ author.name }}</h3>
             </div>

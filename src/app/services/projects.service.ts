@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Project } from '../types/project';
 
 @Injectable({
@@ -6,84 +8,33 @@ import { Project } from '../types/project';
 })
 export class ProjectsService {
 
-  private projects: Project[] = [
-    {
-      "id":"5f58d31b5b33d9c07c4dbef4",
-      "authorID":"5f581d4a83a089abe222f685",
-      "name":"HackHub",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "tags":[
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'}
-      ]
-    },
-    {
-      "id":"5f58d31b5b33d9c07c4dbef4",
-      "authorID":"5f581d4a83a089abe222f685",
-      "name":"HackHub",
-      "description":
-      "This project!",
-      "tags":[
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'}
-      ]
-    },
-    {
-      "id":"5f58d31b5b33d9c07c4dbef4",
-      "authorID":"5f581d4a83a089abe222f685",
-      "name":"HackHub",
-      "description":
-      "This project!",
-      "tags":[
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'}
-      ]
-    },
-    {
-      "id":"5f58d31b5b33d9c07c4dbef4",
-      "authorID":"5f581d4a83a089abe222f685",
-      "name":"HackHub",
-      "description":
-      "This project!",
-      "tags":[
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'},
-        {id: '1', name: 'web', description: 'blah'}
-      ]
-    }
-  ];
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   async searchProjects(query: string, tags: string[]) {
 
   }
 
   async getProjects(): Promise<Project[]> {
-    return this.projects;
+    return await this.http.get<Project[]>(`${environment.BASE_API_URL}/projects`).toPromise();
   }
 
   async getProject(id: string): Promise<Project> {
-    return this.projects.find(project => project.id === id);
+    return await this.http.get<Project>(`${environment.BASE_API_URL}/projects/${id}`).toPromise();
   }
 
   async createProject(project: Project): Promise<void> {
-    project.id = '1234';
-    this.projects.push(project);
+    await this.http.post(`${environment.BASE_API_URL}/projects`, project, { withCredentials: true }).toPromise();
   }
 
-  async updateProject(project: Partial<Project>) {
-
+  async updateProject(id: string, project: Partial<Project>) {
+    await this.http.patch(`${environment.BASE_API_URL}/projects/${id}`, project, { withCredentials: true }).toPromise();
   }
 
   async deleteProject(id: string) {
-
+    await this.http.delete(`${environment.BASE_API_URL}/projects/${id}`).toPromise();
   }
 
   async getAuthorProjects(authId: string): Promise<Project[]> {
-    return this.projects;
+    return await  this.http.get<Project[]>(`${environment.BASE_API_URL}/users/${authId}/projects`).toPromise();
   }
 }

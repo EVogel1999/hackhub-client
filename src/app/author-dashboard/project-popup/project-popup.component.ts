@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProjectsService } from 'src/app/services/projects.service';
+import { UserService } from 'src/app/services/user.service';
 import { Project } from 'src/app/types/project';
 
 @Component({
@@ -19,7 +20,7 @@ export class ProjectPopupComponent implements OnInit {
     repositoryURL: null
   }
 
-  constructor(private projectsService: ProjectsService, private dialogRef: MatDialogRef<ProjectPopupComponent>, @Inject(MAT_DIALOG_DATA) data) {
+  constructor(private projectsService: ProjectsService, private userService: UserService, private dialogRef: MatDialogRef<ProjectPopupComponent>, @Inject(MAT_DIALOG_DATA) data) {
     this.mode = data.mode;
     if (this.mode === 'update') {
       this.model = data.params;
@@ -32,10 +33,12 @@ export class ProjectPopupComponent implements OnInit {
   async submit() {
     switch(this.mode) {
       case 'create':
+        const user = (await this.userService.user()).id;
+        this.model.authorID = user;
         await this.projectsService.createProject(this.model);
         break;
       case 'update':
-        await this.projectsService.updateProject(this.model);
+        await this.projectsService.updateProject(this.model._id, this.model);
         break;
     }
     

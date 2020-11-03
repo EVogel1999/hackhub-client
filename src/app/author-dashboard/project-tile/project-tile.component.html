@@ -1,5 +1,5 @@
 <div>
-    <div class="tile" routerLink="/projects/{{ project.id }}">
+    <div class="tile" routerLink="/projects/{{ project._id }}">
         <h1>{{ project.name }}</h1>
         <span *ngFor="let tag of project.tags">{{ tag.name }}</span>
         <p>{{ project.description }}</p>

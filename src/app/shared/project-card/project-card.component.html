@@ -1,11 +1,11 @@
-<div class="card" routerLink="/projects/{{ project.id }}">
+<div class="card" routerLink="/projects/{{ project._id }}">
     <div class="separate">
         <span class="category"></span>
         <div class="info">
             <div class="name">
                 <span class="project">{{ project.name }}</span>
                 <span>
-                    <span *forEach="let tag of project.tags">{{ tag.name }}</span>
+                    <span *ngFor="let tag of project.tags">{{ tag.name }}</span>
                 </span>
             </div>
             <span>{{ project.description }}</span>
