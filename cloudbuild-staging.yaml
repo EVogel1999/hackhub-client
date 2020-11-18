@@ -12,7 +12,7 @@ steps:
 # Build Production Application
 - name: node
   entrypoint: npm
-  args: ['run', 'build', '--prod']
+  args: ['run', 'staging']
     
 # Build Docker Image
 - name: 'gcr.io/cloud-builders/docker'
