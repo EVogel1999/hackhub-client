@@ -102,7 +102,7 @@
               "browserTarget": "hackhub-client:build:production"
             },
             "staging": {
-              "browserTarget": "hackhub-client:build:production"
+              "browserTarget": "hackhub-client:build:staging"
             }
           }
         },
@@ -154,7 +154,7 @@
               "devServerTarget": "hackhub-client:serve:production"
             },
             "staging": {
-              "devServerTarget": "hackhub-client:serve:production"
+              "devServerTarget": "hackhub-client:serve:staging"
             }
           }
         }
