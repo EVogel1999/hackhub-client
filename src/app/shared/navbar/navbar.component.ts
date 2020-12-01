@@ -12,10 +12,10 @@ export class NavbarComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
+    console.log(environment.BASE_API_URL);
   }
 
   login() {
-    console.log(environment.BASE_API_URL);
     this.document.location.href = environment.BASE_API_URL + '/google';
   }
 
