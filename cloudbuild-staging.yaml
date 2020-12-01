@@ -25,4 +25,4 @@ steps:
 # Deploy to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'client', '--image', 'gcr.io/$PROJECT_ID/client-staging', '--region', 'us-central1', '--platform', 'managed']
+  args: ['run', 'deploy', 'client-staging', '--image', 'gcr.io/$PROJECT_ID/client-staging', '--region', 'us-central1', '--platform', 'managed']
