@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   }
 
   login() {
+    console.log(environment.BASE_API_URL);
     this.document.location.href = environment.BASE_API_URL + '/google';
   }
 
